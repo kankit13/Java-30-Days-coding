@@ -1,0 +1,41 @@
+/* 
+Define a function factorial, take a user input n and print its factorial.
+*********************
+Sample Input
+********************
+5
+
+*******************
+Expected Output
+*******************
+120
+
+*/
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+    //int f=1;
+    public static int factorial(int num)
+      {
+        if (num == 1) return 1 ;
+        else
+           return num * factorial(num-1);
+                    //return(f);        
+      }
+        public static void main(String[] args) 
+        {
+            int input,output;
+            Scanner scan = new Scanner(System.in);
+            input = scan.nextInt();
+            output = factorial(input);
+            System.out.println(output);
+            
+                
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+    }
+}
