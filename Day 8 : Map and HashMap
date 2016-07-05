@@ -1,0 +1,51 @@
+/* 
+
+Data Structure : Map and HashMap 
+Aim : Create a Phone Book to store "name" and "number" and query the same. If not found, print "Not found" else print "name=number"
+**********************
+Standard Input : Number of input followed by input sets followed by names to be searched in the dictionary
+**********************
+3
+ankit 91767
+rahul 89367
+tanaya 8257
+ankit
+rahul
+steve
+
+**********************
+Standard Output
+**********************
+ankit=91767
+rahul=89367
+Not found
+
+*/
+
+import java.util.*;
+import java.io.*;
+
+class Solution{
+    public static void main(String []argh){
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        Map<String,Integer> phoneBook = new HashMap<String,Integer>();
+        for(int i = 0; i < n; i++)
+        {
+            String name = in.next();
+            int phone = in.nextInt();
+            // Write code here
+            //HashMap phoneBook = new HashMap();
+            phoneBook.put(name,phone);
+        }
+        while(in.hasNext()){
+            String s = in.next();
+            if (phoneBook.get(s) == null)
+                System.out.println("Not found");
+            else
+            System.out.println(s+"="+phoneBook.get(s));
+            // Write code here
+        }
+        in.close();
+    }
+}
