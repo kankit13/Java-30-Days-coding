@@ -1,0 +1,84 @@
+/*
+
+---------------------------
+Hour Glass Problem
+---------------------------
+
+Given a followinf 2D array, we have 16 hour glasses
+
+1 1 1 0 0 0
+0 1 0 0 0 0
+1 1 1 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+
+An hour glass is of the indexes ab are
+
+00  01  02
+    12
+20  21  22  
+
+Which gives follwoing 16 hour glasses :
+
+1 1 1   1 1 0   1 0 0   0 0 0
+  1       0       0       0
+1 1 1   1 1 0   1 0 0   0 0 0
+
+0 1 0   1 0 0   0 0 0   0 0 0
+  1       1       0       0
+0 0 2   0 2 4   2 4 4   4 4 0
+
+1 1 1   1 1 0   1 0 0   0 0 0
+  0       2       4       4
+0 0 0   0 0 2   0 2 0   2 0 0
+
+0 0 2   0 2 4   2 4 4   4 4 0
+  0       0       2       0
+0 0 1   0 1 2   1 2 4   2 4 0
+
+Problem : Calculate the sum for every hourglass and print the maximum sum.
+
+In the above example the hour glass with max sum is 
+2 4 4
+  2
+1 2 4
+
+SO we have :
+2+4+4+2+1+2+4 = 19
+*/
+
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+            int s[] = new int[16];
+            int c= 0; 
+        Scanner in = new Scanner(System.in);
+        int arr[][] = new int[6][6];
+        for(int i=0; i < 6; i++){
+            for(int j=0; j < 6; j++){
+                arr[i][j] = in.nextInt();
+            }
+        }
+         for(int i = 0; i < 4; i++)
+            {
+            for(int j = 0; j < 4; j++)
+            {
+            s[c]= arr[i][j] + arr[i][j+1] + arr[i][j+2]
+                            +arr[i+1][j+1]
+                  +arr[i+2][j] + arr[i+2][j+1] + arr[i+2][j+2];
+            c++;
+        }
+        }
+        Arrays.sort(s);
+        System.out.println(s[15]);
+    
+    }
+}
